@@ -7,7 +7,7 @@ pipeline {
   stages {
     stage('Checkout Source') {
       steps {
-        git 'https://github.com/Ashvini379/Django-Docker-Jenkins-kubernetes.git'
+        git branch: 'main' url: 'https://github.com/Ashvini379/Django-Docker-Jenkins-kubernetes.git'
       }
     }
     stage('Build image') {
@@ -29,7 +29,7 @@ pipeline {
         }
       }
     }
-    stage('Deploying React.js container to Kubernetes') {
+    stage('Deploying Django Application container to Kubernetes') {
       steps {
         script {
           kubernetesDeploy(configs: "deployment.yaml", 
