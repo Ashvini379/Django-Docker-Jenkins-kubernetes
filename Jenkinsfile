@@ -32,9 +32,9 @@ pipeline {
     stage('Deploying Django Application container to Kubernetes') {
       steps {
         script {
-          kubernetesDeploy(configs: "deployment.yaml", 
-                                         "service.yaml")
-        }
+              sh 'kubectl apply -f $JENKINS_HOME/workspace/deployment.yml'
+              sh 'kubectl apply -f $JENKINS_HOME/workspace/service.yml'     
+        }   
       }
     }
   }
