@@ -7,7 +7,7 @@ metadata:
     app: django-app
 spec:
   replicas: 2 #The number of pods to be created in the 
-   #Kubernetes cluster for the React.js application container
+   #Kubernetes cluster for the django application container
   selector:
     matchLabels:
       app: django-app
@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: django-app #The name of the react.js application container
-        #The Docker image for building the React.js application container
+        #The Docker image for building the django application container
         image: ashvini34/django-app:latest 
         ports:
-        - containerPort: 3000 #The port for the React.js application container
+        - containerPort: 3000 #The port for the django application container
