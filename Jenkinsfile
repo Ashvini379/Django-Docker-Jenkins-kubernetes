@@ -35,6 +35,7 @@ pipeline {
               sh 'curl -LO "https://storage.googleapis.com/kubernetes-release/release/v1.20.5/bin/linux/amd64/kubectl"'  
               sh 'chmod u+x ./kubectl'
               sh 'mv ./kubectl /usr/local/bin'
+              sh 'cp ~/.kube/config $JENKINS_HOME'
               sh 'kubectl apply -f $JENKINS_HOME/workspace/deployment.yml'
               sh 'kubectl apply -f $JENKINS_HOME/workspace/service.yml'     
         }   
